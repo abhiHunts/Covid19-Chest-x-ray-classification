@@ -1,5 +1,5 @@
-streamlit==1.16.0
-tensorflow==2.9.2
+streamlit
+tensorflow
 Pillow
 numpy
-protobuf==3.20.1
+protobuf
