@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from PIL import Image, ImageOps
+from PIL import Image
 import tensorflow as tf
 st.set_option('deprecation.showfileUploaderEncoding', False)
 from PIL import Image
@@ -17,10 +17,9 @@ st.write('''
 file = st.file_uploader('Please Upload X-ray Image', type=['jpg','png','jpeg'])
 
 def load_and_predict(img, model):   
-    size=(1000,1000)
+    size=(224,224)
     
-    #image = ImageOps.fit(img, size,Image.ANTIALIAS)
-    #img = np.asarray(image)
+    
     img = tf.image.decode_jpeg(img, channels=3)
     
     img = tf.image.resize(img, list(size))
