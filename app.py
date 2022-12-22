@@ -1,12 +1,12 @@
 import streamlit as st
 import numpy as np
-from PIL import Image, ImageOps
+from PIL import Image
 import tensorflow as tf
 st.set_option('deprecation.showfileUploaderEncoding', False)
 from PIL import Image
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('model/vgg16_best.h5')
+    model = tf.keras.models.load_model('vgg16_best.h5')
     return model
 model = load_model()
 
