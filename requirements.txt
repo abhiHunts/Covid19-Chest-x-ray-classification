@@ -1,5 +1,5 @@
+protobuf==3.9.2
 streamlit
 tensorflow
 Pillow
 numpy
-protobuf
