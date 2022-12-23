@@ -1,5 +1,5 @@
 protobuf==3.9.2
-streamlit
+streamlit==0.84.0
 tensorflow
 Pillow
 numpy
