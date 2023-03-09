@@ -2,9 +2,11 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import tensorflow as tf
+import os 
+
 st.set_option('deprecation.showfileUploaderEncoding', False)
 from PIL import Image
-@st.cache(allow_output_mutation=True)
+# @st.cache_data
 def load_model():
     model = tf.keras.models.load_model('vgg16_best.h5')
     return model
@@ -37,12 +39,14 @@ with col1:
         print(type(file.getvalue()))
         predictions = load_and_predict(file.getvalue(), model)
         class_names = ['Normal', 'Viral Pneumonia', 'Covid']
-        print(np.sort(predictions)[::-1])
+        print('predictions:', predictions)
         pred_class = class_names[predictions.argmax()]
 
         with col2:
             if pred_class == 'Normal':
                 st.success('This x-ray is of type : '+pred_class)
+            elif pred_class == 'Viral Pneumonia':
+                st.warning('This x-ray is of type : '+pred_class)
             else:
                 st.error('This x-ray is of type : '+pred_class)
 
